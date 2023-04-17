@@ -21,23 +21,25 @@ import de.hamster.debugger.model.Territorium;import de.hamster.debugger.model.Te
 		}
 	}
 	linksUm();
-	if (zehler == 4){
+	
+	switch (zehler){
+	case 4:
 		vor();	
-	}
-	if (zehler == 2 || zehler == 3){
+	case 2::
 		for (int i = 0;i < 2;i++){
 			vor();
 		}
-	}
-	if (zehler == 1){
+	case 3: 
+		for (int i = 0; i < 2; i++){
+			vor();
+		}	
+	case 1:
 		for (int i = 0;i < 3;i++){
 			vor();
 		}
-	}
-	if (zehler > 4){
+	case 4:
 		for (int i = 0;i < 4;i++){
 			vor();
 		}
 	}
-}
-}
+}}
