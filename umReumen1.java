@@ -47,7 +47,7 @@ void anZahlKorn(int anzahl){
 
 void seiteWechsel(){
 	
-	umDrehen();
+	
 	while (vornFrei()){
 		vor();
 	}
@@ -74,7 +74,7 @@ void verteilen(int anzahl){
 			for (int j = 0; j < helfte; j++){
 				gib();
 			}
-		seitenWeksel();
+		seiteWechsel();
 		}
 	}
 	
