@@ -1,13 +1,20 @@
+
+
+
 import de.hamster.debugger.model.Territorium;import de.hamster.debugger.model.Territory;import de.hamster.model.HamsterException;import de.hamster.model.HamsterInitialisierungsException;import de.hamster.model.HamsterNichtInitialisiertException;import de.hamster.model.KachelLeerException;import de.hamster.model.MauerDaException;import de.hamster.model.MaulLeerException;import de.hamster.model.MouthEmptyException;import de.hamster.model.WallInFrontException;import de.hamster.model.TileEmptyException;public class umReumen1 extends de.hamster.debugger.model.IHamster implements de.hamster.model.HamsterProgram {public void main() {
 
-	boolean wegFrei = true;
 	int anzahl = 0;
-	while (wegFrei){	//keine sensoren in der main methode
+	boolean wegFrei = true;
+
+	while (keineMauer()){	//keine sensoren in der main methode
 		zumNechstenGang();
-		anZahlKorn(anzahl);
+		anzahl = zehlKorn();
+		seiteWechsel();
+		anzahl = anzahl + zehlKorn();
+		verteilen(anzahl);
 		anzahl = 0;
+		umDrehen();
 		zurMitte();
-		keineMauer(wegFrei);
 	}	    
 }
 
@@ -31,27 +38,22 @@ void umDrehen(){
 	linksUm();
 }
 
-void anZahlKorn(int anzahl){
+int zehlKorn(){
 
-	while (kornDa()){	//untere nische
+	int counter = 0;
+	while (kornDa()){
 		nimm();
-		anzahl++;
+		counter++;
 	}
-	seiteWechsel();
-	while (kornDa()){	//obere Nische
-		nimm();
-		anzahl++;
-	}
-	verteilen(anzahl);
+	return counter;
 }
 
 void seiteWechsel(){
 	
-	
+	umDrehen();
 	while (vornFrei()){
 		vor();
 	}
-	umDrehen();
 }
 
 void verteilen(int anzahl){
@@ -63,7 +65,9 @@ void verteilen(int anzahl){
 			for (int j = 0; j < helfte; j++){
 				gib();
 			}
-			seiteWechsel();
+			if ( i < 1){
+				seiteWechsel();
+			}
 		}
 	}
 	if (halbierBar != 0) {
@@ -74,7 +78,9 @@ void verteilen(int anzahl){
 			for (int j = 0; j < helfte; j++){
 				gib();
 			}
-		seiteWechsel();
+			if ( i < 1){
+				seiteWechsel();
+			}
 		}
 	}
 	
@@ -87,14 +93,8 @@ void rechtsUm(){
 	linksUm();
 }
 
-void keineMauer(boolean wegFrei){
-
-	if (vornFrei()){
-		wegFrei = true;
-	}
-	else {
-		wegFrei = false;
-	}
+boolean keineMauer(){
+	return vornFrei();
 }
 
 void zurMitte(){
