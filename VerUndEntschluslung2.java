@@ -44,22 +44,35 @@ public class VerUndEntschluslung2 {
         }
         
         Scanner sc = new Scanner(System.in);
-        System.out.println
+
         System.out.println("Gib dein Passwort ein:");
         String passwort = sc.nextLine();
         int textLange = passwort.length();
+
+        System.out.println("Welches Schlüsselwort sol verwendet werden:");
+        String schlusselWort = sc.nextLine();
+        int schlusselLenge = schlusselWort.length();
+
         char buchstabe = 'b';
+        int schlusselPosition = 0;
+        
         for (int i = 0; i < textLange; i++){
             buchstabe = passwort.charAt(i);
             char klein = Character.toLowerCase(buchstabe);
-            
-            for (int j = 0; j < ){
+            char schlussel = schlusselWort.charAt(schlusselPosition);
+            for (int j = 0; j < schlussel; j++){
                 klein++;
                 if (!Character.isDefined(klein)){
                     klein = untergrenze;
                 }
             }
 
+            if (schlusselPosition < schlusselLenge){
+                schlusselPosition++;
+            }
+            else{
+                schlusselPosition = 0;
+            }
             
             passwort = passwort.replace(buchstabe,klein);
         }
@@ -81,22 +94,32 @@ public class VerUndEntschluslung2 {
         System.out.println("Geben sie ein verschlüsseltes Passwort ein?");
         String passwort = sc.nextLine();
         int textLenge = passwort.length();
+        
+        System.out.println("Welches Schlüsselwort sol verwendet werden:");
+        String schlusselWort = sc.nextLine();
+        int schlusselLenge = schlusselWort.length();
+
+        int schlusselPosition = 0;
         char neuBuchstabe = 1;
         for (int i = 0; i < textLenge; i++){
             char buchstabe = passwort.charAt(i);
             neuBuchstabe = buchstabe;
-            neuBuchstabe--;
+            char schlussel = schlusselWort.charAt(schlusselPosition);
+           
+            for (int j = 0; j < schlussel; j++){
+                neuBuchstabe--;
             
-            if (!Character.isDefined(neuBuchstabe)){
-                neuBuchstabe = obergrenze;
+               if (!Character.isDefined(neuBuchstabe)){
+                    neuBuchstabe = obergrenze;
+                }
             }
-
-            neuBuchstabe--;
             
-            if (!Character.isDefined(neuBuchstabe)){
-                neuBuchstabe = obergrenze;
+            if (schlusselPosition < schlusselLenge){
+                schlusselPosition++;
             }
-
+            else {
+                schlusselPosition = 0;
+            }
             char gross = Character.toUpperCase(neuBuchstabe);
             passwort = passwort.replace(buchstabe,gross);
         }
