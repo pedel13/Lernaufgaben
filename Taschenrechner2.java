@@ -8,7 +8,7 @@ public class Taschenrechner2 {
         boolean menu = true;
 
         while (menu){
-            System.out.println("Geben sie ein: Addition; 1  Suptraktion; 2  Multiplikation; 3  Division; 4  Modulo; 5");
+            System.out.println("Geben sie ein: Addition; 1  Suptraktion; 2  Multiplikation; 3  Division; 4  Modulo; 5  Abschlisen; 6");
             int rechnungsArt = sc.nextInt();
             System.out.println("Geben sie die erste Zahl ein:");
             int ersteZahl = sc.nextInt();
@@ -29,6 +29,9 @@ public class Taschenrechner2 {
                     break;
                 case 5:
                     System.out.println(ersteZahl % zweiteZahl);
+                    break;
+                case 6:
+                    menu = false;
                     break;
                 default:
                     System.out.println("Falsche Eingabe!");
