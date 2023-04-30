@@ -1,12 +1,11 @@
 import java.util.Scanner;
 
-public class VerUndEntschlusslung {
+public class VerUndEntschlusslung2 {
 
     public static void main(String[]args){
         
         Scanner sc = new Scanner(System.in);
         boolean lauft = true;
-        String passwort = "";
         
         
         while (lauft){
@@ -40,15 +39,18 @@ public class VerUndEntschlusslung {
         char[] neuPassword = new char[textLange];
 
 
-        System.out.println("Welche zahl wollen sie zum codiren:");
-        int codierNummer = sc.nextInt();
-        char buchstabe = 'b';
-        
+        System.out.println("Welches codwort wollen sie benuzen:");
+        String codierWort = sc.nextLine();
+        int codLenge = codierWort.length();
+        int position = 0;
+
         for (int i = 0; i < textLange; i++){
-            buchstabe = passwort.charAt(i);
+            char buchstabe = passwort.charAt(i);
+            char codBuchstabe = codierWort.charAt(position);
             char klein = Character.toLowerCase(buchstabe);
+            
             if (klein >= 'a' & klein <= 'z'){
-                for (int j = 0; j < codierNummer; j++){
+                for (int j = 0; j < (int)codBuchstabe; j++){
                     klein++;
                     if (klein > 'z'){
                         klein = 'a';
@@ -56,7 +58,7 @@ public class VerUndEntschlusslung {
                 } 
             }
             if (klein <= '9' & klein >= '0'){
-                for (int j = 0; j < codierNummer; j++){
+                for (int j = 0; j < (int)codBuchstabe; j++){
                     klein++;
                     if (klein > '9'){
                         klein = '0';
@@ -64,6 +66,11 @@ public class VerUndEntschlusslung {
                 } 
             }
             neuPassword[i] = klein;
+
+            position++;
+            if (position+1 > codLenge){ //+1 weil die codlange bei 1 begint aber 1 schun die zweite posistin im codword ist
+                position = 0;
+            }
         }
 
         System.out.println(neuPassword);  
@@ -79,14 +86,17 @@ public class VerUndEntschlusslung {
         char[] neuPassword = new char[textLenge];
 
         System.out.println("Welchen Codierschlüssel wollen sie ferwenden");
-        int codierSchlussel = sc.nextInt();
-
+        String codierSchlussel = sc.nextLine();
+        int codLenge = codierSchlussel.length();
+        int position = 0;
+       
         for (int i = 0; i < textLenge; i++){
             char buchstabe = passwort.charAt(i);
+            char codBuchstabe = codierSchlussel.charAt(position);
             char gross = Character.toUpperCase(buchstabe);
-
+            
             if (gross <= 'Z' & gross >= 'A'){
-                for (int j = 0; j < codierSchlussel; j++){
+                for (int j = 0; j < (int)codBuchstabe; j++){
                     gross--;
                     if (gross > 'Z'){
                         gross = 'A';
@@ -94,15 +104,20 @@ public class VerUndEntschlusslung {
                 }
             }
             if (gross <= '9' & gross >= '0'){
-                for (int j = 0; j < codierSchlussel;j++){
+                for (int j = 0; j < (int)codBuchstabe;j++){
                     gross--;
                     if (gross > '9'){
                         gross = '0';
                     }
                 }
             }
-
+            
             neuPassword[i] = gross;
+
+            position++;
+            if (position+1 > codLenge){ //+1 weil die codlange bei 1 begint aber 1 schun die zweite posistin im codword ist
+                position = 0;
+            }
         }
         
         System.out.println(neuPassword);
