@@ -17,22 +17,22 @@ public class TaschenRechner3 {
             operator = sc.next().charAt(0);
             switch (operator){
                 case '+':
-                    System.out.pritel("Geben sie noch eine Zahl ein:");
+                    System.out.println("Geben sie noch eine Zahl ein:");
                     zahl = sc.nextInt();
                     resultat = resultat + zahl;
                     break;
                 case '-':
-                    System.out.pritel("Geben sie noch eine Zahl ein:");
+                    System.out.println("Geben sie noch eine Zahl ein:");
                     zahl = sc.nextInt();
                     resultat = resultat - zahl;
                     break;
                 case '*':
-                    System.out.pritel("Geben sie noch eine Zahl ein:");
+                    System.out.println("Geben sie noch eine Zahl ein:");
                     zahl = sc.nextInt();
                     resultat = resultat * zahl;
                     break;
                 case '/':
-                    System.out.pritel("Geben sie noch eine Zahl ein:");
+                    System.out.println("Geben sie noch eine Zahl ein:");
                     zahl = sc.nextInt();
                     resultat = resultat / zahl;
                     break;
@@ -40,8 +40,9 @@ public class TaschenRechner3 {
                     System.out.println(resultat);
                     break;
                 case 'c':
-                    clear();
+                    resultat = 0;
                     System.out.println("Geben sie eine Zahl ein:");
+                    resultat = sc.nextInt();
                     break;
                 case 'q':
                     leuft = false;
