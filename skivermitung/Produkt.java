@@ -30,4 +30,9 @@ public class Produkt {
     public Produkt getProdukt(){
         return this;
     }
+
+    public void printAttribut(){
+        System.out.print(this.preis);
+        System.out.println(this.produktNr);
+    }
 }

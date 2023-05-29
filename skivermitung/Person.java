@@ -6,7 +6,7 @@ import java.util.List;
 public class Person{
  
   
-    public Person(String name, String nachName, String adresse,int geburtsDatum, long telephonNr, String ausweisNr){
+    public Person(String name, String nachName, String adresse,int geburtsDatum, String telephonNr, String ausweisNr){
 
 
         this.name = name;
@@ -23,7 +23,7 @@ public class Person{
     private String nachName;
     private String adresse;
     private int geburtsDatum;
-    private long telephonNr;
+    private String telephonNr;
     private String ausweisNr;
     private List <Produkt> ausgewehlteProdukte = new ArrayList<Produkt>();
 
@@ -64,7 +64,7 @@ public class Person{
         this.telephonNr = telephonNr;
     }
 
-    public long getTelephonNr(){
+    public String getTelephonNr(){
         return this.telephonNr;
     }
 
@@ -84,12 +84,20 @@ public class Person{
         return (ArrayList<Produkt>) this.ausgewehlteProdukte;
     }
 
+    public void printProdukte(){
+        for (Produkt j: ausgewehlteProdukte){
+            j.printAttribut();
+        }
+    }
 
-
-    
+    public double warenkorbBerechnung(){
+        double inhalt = 0;
+        for (Produkt j: ausgewehlteProdukte){
+            inhalt = inhalt + j.getPreis();
+        }
+        return inhalt;
+    }    
     public void printAttribut(){
-
-
         System.out.print("Name: " + this.name);
         System.out.print(" Nachname: " + this.nachName);
         System.out.print(" Adresse: " + this.adresse);

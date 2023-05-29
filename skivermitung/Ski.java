@@ -10,9 +10,7 @@ public class Ski extends Produkt{
     }
 
     private String marke;
-    private double preis;
     private double grosse;
-    private int produktNr;
     private String art;
     
     
@@ -49,9 +47,9 @@ public class Ski extends Produkt{
     public void printAttribut(){
 
         System.out.print("Marke: " + this.marke);
-        System.out.print(" Preis: " + this.preis);
+        System.out.print(" Preis: " + getPreis());
         System.out.print(" Grösse: " + this.grosse);
-        System.out.print(" produktNr: " + this.produktNr);
+        System.out.print(" produktNr: " + getProduktNr());
         System.out.println(" Art: " + this.art);
     }
 }
