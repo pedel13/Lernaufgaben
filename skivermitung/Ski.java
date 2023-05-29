@@ -1,5 +1,5 @@
  
-public class Ski extends ProduktNr{
+public class Ski extends Produkt{
  
     public Ski(String marke, double preis, double grosse, int produktNr, String art){
 

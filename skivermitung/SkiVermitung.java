@@ -12,7 +12,7 @@ public class SkiVermitung {
         List <Snowboard> snowboards = new ArrayList<Snowboard>();
         List <Ski> skis = new ArrayList <Ski>();
         List <Person> personen = new ArrayList <Person>();
-        List <ProduktNr> produktNrs = new ArrayList <ProduktNr>();
+        List <Produkt> produktNrs = new ArrayList <Produkt>();
 
         Snowboard snowboard1 = new Snowboard("Borten", 59.95, 1.85, 560,"Freeraid");
         snowboards.add(snowboard1);
@@ -41,6 +41,8 @@ public class SkiVermitung {
         Schuh schu4 = new Schuh("Borten", 80.55, 1.73, "Grün", 390);
         schuhe.add(schu4);
 
+        Person person1 = new Person("Patrick", "Wethli", "Florastrasse 13", 311096, 0793666036, "c7678892");
+        personen.add(person1);
         boolean menu = true;
 
         while (menu){
@@ -313,7 +315,7 @@ public class SkiVermitung {
                     switch (personenMenu){
                         case 1:
                                                          //Name      Nachname    Adresse   GeburtsDatum    TelephonNr    AusweissNr   
-                            Person person = new Person(sc.next(), sc.next(), sc.next(),sc.nextInt(), sc.nextInt(), sc.nextInt());
+                            Person person = new Person(sc.next(), sc.next(), sc.next(),sc.nextInt(), sc.nextLong(), sc.next());
                             personen.add(person);
                             person.printAttribut();
                             break;
@@ -324,21 +326,21 @@ public class SkiVermitung {
                             System.out.println("geben sie ihre AusweisNr. ein");
                             int ausweissNr = sc.nextInt();
                             boolean produktwahl = true;
-                            for (Person j: personen){
-                                if (j.getAusweisNr() == ausweissNr){
-                                    j.printAttribut();
+                            for (Person p: personen){
+                                if (p.getAusweisNr().equals(ausweissNr)){
+                                    p.printAttribut();
                                     while (produktwahl){
                                         System.out.println("welche produktNr wollen sie Hinzufügen");
                                         int produktHinzufügen = sc.nextInt();
-                                        for (ProduktNr i: produktNrs){
+                                        for (Produkt i: produktNrs){
                                             if (produktHinzufügen == i.getProduktNr()){
-                                                //j.getAusgewehlteProdukte().add(i.getProduktNr());
+                                                p.setAusgewehlteProdukte(i.getProdukt());
                                                 System.out.println("Weiterschtöbern: Belibige Taste; mehr Produkte Hinzufügen: Yas");
                                                 String bestelMenu = sc.next();
                                                 if (bestelMenu.equals("Yas")){
                                                 }
                                                 else {
-                                                    System.out.println(j.getAusgewehlteProdukte());
+                                                    System.out.println(p.getAusgewehlteProdukte());
                                                 }
                                             }
                                         }
@@ -357,15 +359,15 @@ public class SkiVermitung {
                     break;
                 case 7:
                     for (Snowboard j: snowboards){
-                        j.printAttribut();
+      
                     }
                     break;
                 
             }
 
         }
-        for (ProduktNr j: produktNrs){
-            System.out.println(j.printAttribut());
+        for (Produkt j: produktNrs){
+           // System.out.println(j.printAttribut());
         }
     }
     

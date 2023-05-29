@@ -1,7 +1,7 @@
-public class ProduktNr {
+public class Produkt {
 
 
-    public ProduktNr(double preis, int produktNr){
+    public Produkt(double preis, int produktNr){
 
         this.preis = preis;
         this.produktNr = produktNr;
@@ -26,5 +26,8 @@ public class ProduktNr {
 
     public int getProduktNr(){
         return this.produktNr;
+    }
+    public Produkt getProdukt(){
+        return this;
     }
 }

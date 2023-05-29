@@ -1,5 +1,5 @@
 
-public class Snowboard extends ProduktNr{
+public class Snowboard extends Produkt{
 
     //konstruktor
     public Snowboard(String marke, double preis, double grosse, int produktNr, String art){ 

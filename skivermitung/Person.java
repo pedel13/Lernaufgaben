@@ -6,7 +6,7 @@ import java.util.List;
 public class Person{
  
   
-    public Person(String name, String nachName, String adresse,int geburtsDatum, int telephonNr, int ausweisNr){
+    public Person(String name, String nachName, String adresse,int geburtsDatum, long telephonNr, String ausweisNr){
 
 
         this.name = name;
@@ -23,9 +23,9 @@ public class Person{
     private String nachName;
     private String adresse;
     private int geburtsDatum;
-    private int telephonNr;
-    private int ausweisNr;
-    private List <ProduktNr> ausgewehlteProdukte = new ArrayList<ProduktNr>();
+    private long telephonNr;
+    private String ausweisNr;
+    private List <Produkt> ausgewehlteProdukte = new ArrayList<Produkt>();
 
 
     public void setName(){
@@ -64,7 +64,7 @@ public class Person{
         this.telephonNr = telephonNr;
     }
 
-    public int getTelephonNr(){
+    public long getTelephonNr(){
         return this.telephonNr;
     }
 
@@ -72,16 +72,16 @@ public class Person{
         this.ausweisNr = ausweisNr;
     }
 
-    public int getAusweisNr(){
+    public String getAusweisNr(){
         return this.ausweisNr;
     }
 
-    public void setAusgewehlteProdukte(ArrayList<ProduktNr> ausgewehlteProdukte){
-        this.ausgewehlteProdukte = ausgewehlteProdukte;
+    public void setAusgewehlteProdukte(Produkt p){
+        this.ausgewehlteProdukte.add(p);
     }
 
-    public ArrayList<ProduktNr> getAusgewehlteProdukte(){
-        return (ArrayList<ProduktNr>) this.ausgewehlteProdukte;
+    public ArrayList<Produkt> getAusgewehlteProdukte(){
+        return (ArrayList<Produkt>) this.ausgewehlteProdukte;
     }
 
 
