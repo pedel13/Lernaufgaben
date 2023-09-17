@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Licht</title>
+</head>
+<script>
+    function knopfOff() { 
+        document.getElementById("knopf").innerHTML = `<button class="on" onclick="knopfOn()" >OFF</button>`
+    }
+    function knopfOn() {
+        document.getElementById("knopf").innerHTML = `<button class="off" onclick="knopfOff()">ON</button>`
+    }
+</script>
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        margin: 0px;
+        background-color: blue;
+    }
+    h1 {
+        font-size: 200px;
+        color: aliceblue;
+        padding-bottom: 26vw;
+    }
+    button {
+        font-size: 160px;
+        color: white;
+        height: 70vw;
+        width: 70vw;
+        border-radius: 50%;   
+    }
+    .off{
+        background-color: green;
+    }
+    .on {
+        background-color: darkred;
+    }
+</style>
+<body>
+    <h1>LICHT</h1>
+    <div id="knopf"><button class="off" onclick="knopfOff()" >ON</button></div>
+</body>
+</html>
